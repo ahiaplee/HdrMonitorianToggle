@@ -34,6 +34,7 @@ namespace HdrMonitorianToggleGUI
         {
             logListBox.Items.Add(text);
             logListBox.TopIndex = logListBox.Items.Count - 1;
+            logListBox.Refresh();
         }
 
         private static List<MonitorDetail> GetAvailableMonitors()
@@ -107,7 +108,7 @@ namespace HdrMonitorianToggleGUI
 
                                     if (!isHdrStillOn)
                                     {
-                                        WriteLogLine(" Connected!");
+                                        WriteLogLine("Connected!");
                                         return;
                                     }
                                 }
@@ -119,7 +120,7 @@ namespace HdrMonitorianToggleGUI
                 Thread.Sleep(400);
             }
 
-            WriteLogLine(" Timeout reached, continuing anyway.");
+            WriteLogLine("Timeout reached, continuing anyway.");
         }
 
         private void LaunchMonitorianUnelevated()
@@ -437,7 +438,7 @@ namespace HdrMonitorianToggleGUI
                 SetHdrState(selectedMonitor.TargetId, selectedMonitor.AdapterId, false);
 
                 // Actively poll until the display hardware reconnects and reports SDR ready
-                Console.Write("Waiting for monitor and graphics driver to reconnect");
+                WriteLogLine("Waiting for monitor and graphics driver to reconnect");
                 WaitForMonitorReady(selectedMonitor.TargetId, selectedMonitor.AdapterId);
 
                 // Small grace period for DDC/CI I2C bus initialization

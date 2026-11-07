@@ -151,6 +151,8 @@
             this.Controls.Add(this.selectMonitorLabel);
             this.Controls.Add(this.hdrCapableMonitorsLabel);
             this.Controls.Add(this.monitorsListBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "MainWindow";
             this.Text = "HDR Monitorian Toggle GUI";
             this.Load += new System.EventHandler(this.MainWindow_Load);
