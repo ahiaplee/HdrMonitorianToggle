@@ -412,9 +412,14 @@ namespace HdrMonitorianToggleGUI
 
         private void hdrToggleBtn_Click(object sender, EventArgs e)
         {
+            hdrToggleBtn.Enabled = false;
+            refreshBtn.Enabled = false;
             toggleHDR();
             refreshMonitorList();
             updateSelectionLabels();
+
+            hdrToggleBtn.Enabled = true;
+            refreshBtn.Enabled = true;
         }
 
         private void toggleHDR()
